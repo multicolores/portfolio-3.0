@@ -1,0 +1,26 @@
+@import "variables";
+
+nav {
+  height: 10vh;
+  width: 100%;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  // background: $bg_color;
+  // position: fixed;
+  position: absolute;
+
+  color: $primary_color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10vw;
+  div {
+    a {
+      color: white;
+      text-decoration: none;
+      margin-right: 2vw;
+      font-size: 1.2em;
+    }
+  }
+}

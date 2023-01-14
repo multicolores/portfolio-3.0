@@ -1,0 +1,35 @@
+@import "variables";
+
+.NftCard_Container {
+  position: relative;
+  display: inline-block;
+  width: 20vw;
+  font-family: "Cinzel";
+  //   height: 40vh;
+  background: $bg_color;
+  border: 2px solid $primary_color_light;
+  font-size: 1.2em;
+  .name {
+    display: block;
+    padding: 8% 0;
+    text-align: center;
+  }
+  .image_container {
+    padding: 0 6%;
+    .image {
+      width: 100%;
+    }
+  }
+  //   .gatsby-image-wrapper {
+  //     padding: 20%;
+  //     img {
+  //       display: inline-block;
+  //       padding: 20%;
+  //     }
+  //   }
+  div {
+    padding: 8% 6%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
