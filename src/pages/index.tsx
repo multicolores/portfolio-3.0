@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import { Link } from "gatsby";
 import "../components/styles/styles.scss";
-import Navbar from "../components/Navbar";
 import { useIntersection } from "react-use";
 import gsap from "gsap";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
@@ -33,8 +32,8 @@ function useMousePosition() {
       setMousePosition({ x: e.pageX, y: e.pageY });
     }
 
-    window.addEventListener("mousemove", handlePosition);
-    return () => window.removeEventListener("mousemove", handlePosition);
+    // window.addEventListener("mousemove", handlePosition);
+    // return () => window.removeEventListener("mousemove", handlePosition);
   }, []);
 
   return mousePosition;
@@ -124,7 +123,6 @@ const IndexPage = () => {
   return (
     <main>
       <title>Home Page</title>
-      <Navbar />
       <>
         <motion.div
           initial="initial"
@@ -185,41 +183,26 @@ const IndexPage = () => {
               onMouseEnter={() => setCursorHovered(true)}
               onMouseLeave={() => setCursorHovered(false)}
             >
-              <Image filename={"Tete.JPG"} alt="my picture" />
+              <Image filename={"ma-tete.jpg"} alt="my picture" />
             </div>
             <div className="paragraphe">
               <div className="TextFadeIn" ref={text}>
                 <p>
-                  Bonjour, je suis Florian TELLIER, développeur front end junior
-                  de 20ans. Je possède un bac S mention bien et je suis
+                  Bonjour, je suis Florian TELLIER, développeur full stack
+                  junior de 21ans. Je possède un bac S mention bien et je suis
                   actuellement en licence 3 "Conception et Développement
-                  d’Application Web et Mobile".
+                  d’Application Web et Mobile" en alternance dans l'entreprise
+                  Renault Digital.
                 </p>
                 <p>
-                  Passionné de développement web, j'essaie d'apprendre un
-                  maximum de choses à ce sujet.
+                  Passionné de développement web, j'essaie den apprendre un
+                  maximum à ce sujet.
                 </p>
               </div>
-              {/* <i className="fab fa-html5 TextFadeIn" ref={text}></i>{" "}
-              <i className="fab fa-css3-alt TextFadeIn" ref={text}></i>{" "}
-              <i className="fab fa-js TextFadeIn" ref={text}></i>{" "}
-              <i className="fab fa-sass TextFadeIn" ref={text}></i>{" "}
-              <i className="fab fa-react TextFadeIn" ref={text}></i>{" "}
-              <i className="fab fa-node TextFadeIn" ref={text}></i>
-              <i className="fab fa-angular TextFadeIn" ref={text}></i>
-              <i className="i-logo_image" ref={text}>
-                <Image filename={"Gatsby_logo.png"} alt="logo gatsby" />
-              </i> */}
-              <div className="logos_container">
-                <Image filename={"html5.png"} alt="logo html5" />
-                <Image filename={"css.png"} alt="logo css" />
-                <Image filename={"js.png"} alt="logo js" />
-                <Image filename={"sass.png"} alt="logo sass scss" />
-                <Image filename={"react.png"} alt="logo react" />
-                <Image filename={"angular.png"} alt="logo angular" />
-                <Image filename={"nodejs.png"} alt="logo nodejs" />
-                <Image filename={"icon.png"} alt="logo gatsby" />
-              </div>
+              <Image
+                filename={"languagesList.png"}
+                alt="List des logos des languages de programmation que je connais"
+              />
 
               <a
                 href="#contact"
@@ -248,10 +231,9 @@ const IndexPage = () => {
           <section className="a_propos">
             <div>
               <p>
-                Je n'ai pas encore accumulé beaucoup d'expérience
-                professionnelle mais je suis passioné par la création de site
-                web depuis plusieurs années déjà. Je m'implique dans tous les
-                projets que je réalise car je souhaite toujours m'améliorer.
+                Je suis passioné par la création de site web depuis plusieurs
+                années déjà et je m'implique dans tous les projets que je
+                réalise car je souhaite toujours m'améliorer.
               </p>
               <p>
                 Je suis toujours partant pour réaliser un projet, n'hésiter pas
@@ -277,75 +259,8 @@ const IndexPage = () => {
                 <span> florian.tellier02@gmail.com</span>
               </a>
             </div>
-
-            <div>
-              <a
-                href="tel:06 43 17 66 22"
-                onMouseEnter={() => {
-                  setCursorHovered(true);
-                  setcursorHovered_clickable(true);
-                }}
-                onMouseLeave={() => {
-                  setCursorHovered(false);
-                  setcursorHovered_clickable(false);
-                }}
-              >
-                <span>Telephone : </span>
-                <span> 06 43 17 66 22</span>
-              </a>
-            </div>
-            <div className="github_icon">
-              <a
-                href="https://github.com/multicolores"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i
-                  className="fab fa-github"
-                  onMouseEnter={() => {
-                    setCursorHovered(true);
-                    setcursorHovered_clickable(true);
-                  }}
-                  onMouseLeave={() => {
-                    setCursorHovered(false);
-                    setcursorHovered_clickable(false);
-                  }}
-                ></i>
-              </a>
-            </div>
           </section>
-
-          <div className="contact_Me">
-            {/* <h2>Me contacter</h2> */}
-            <form name="contact" method="POST" data-netlify="true">
-              <input type="hidden" name="form-name" value="contact" />
-              <p>
-                <input type="text" name="name" required />{" "}
-                <label htmlFor="name">
-                  {" "}
-                  <span>Nom :</span>{" "}
-                </label>
-              </p>
-              <p>
-                <input type="email" name="email" required />
-                <label htmlFor="email">
-                  <span>Email :</span>
-                </label>
-              </p>
-              <p>
-                <label htmlFor="message" className="message">
-                  <span>Message</span> <textarea name="message"></textarea>
-                </label>
-              </p>
-              <button type="submit">Envoyer</button>
-            </form>
-
-            <div>
-              <i className="far fa-envelope"></i>
-            </div>
-          </div>
         </motion.div>
-        {/* <ScrollToTop /> */}
       </>
     </main>
   );
