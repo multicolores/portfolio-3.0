@@ -33,8 +33,8 @@ function useMousePosition() {
       setMousePosition({ x: e.pageX, y: e.pageY });
     }
 
-    window.addEventListener("mousemove", handlePosition);
-    return () => window.removeEventListener("mousemove", handlePosition);
+    // window.addEventListener("mousemove", handlePosition);
+    // return () => window.removeEventListener("mousemove", handlePosition);
   }, []);
 
   return mousePosition;
@@ -200,26 +200,10 @@ const IndexPage = () => {
                   maximum de choses à ce sujet.
                 </p>
               </div>
-              {/* <i className="fab fa-html5 TextFadeIn" ref={text}></i>{" "}
-              <i className="fab fa-css3-alt TextFadeIn" ref={text}></i>{" "}
-              <i className="fab fa-js TextFadeIn" ref={text}></i>{" "}
-              <i className="fab fa-sass TextFadeIn" ref={text}></i>{" "}
-              <i className="fab fa-react TextFadeIn" ref={text}></i>{" "}
-              <i className="fab fa-node TextFadeIn" ref={text}></i>
-              <i className="fab fa-angular TextFadeIn" ref={text}></i>
-              <i className="i-logo_image" ref={text}>
-                <Image filename={"Gatsby_logo.png"} alt="logo gatsby" />
-              </i> */}
-              <div className="logos_container">
-                <Image filename={"html5.png"} alt="logo html5" />
-                <Image filename={"css.png"} alt="logo css" />
-                <Image filename={"js.png"} alt="logo js" />
-                <Image filename={"sass.png"} alt="logo sass scss" />
-                <Image filename={"react.png"} alt="logo react" />
-                <Image filename={"angular.png"} alt="logo angular" />
-                <Image filename={"nodejs.png"} alt="logo nodejs" />
-                <Image filename={"icon.png"} alt="logo gatsby" />
-              </div>
+              <Image
+                filename={"languagesList.png"}
+                alt="List des logos des languages de programmation que je connais"
+              />
 
               <a
                 href="#contact"
@@ -278,22 +262,6 @@ const IndexPage = () => {
               </a>
             </div>
 
-            <div>
-              <a
-                href="tel:06 43 17 66 22"
-                onMouseEnter={() => {
-                  setCursorHovered(true);
-                  setcursorHovered_clickable(true);
-                }}
-                onMouseLeave={() => {
-                  setCursorHovered(false);
-                  setcursorHovered_clickable(false);
-                }}
-              >
-                <span>Telephone : </span>
-                <span> 06 43 17 66 22</span>
-              </a>
-            </div>
             <div className="github_icon">
               <a
                 href="https://github.com/multicolores"
@@ -345,7 +313,6 @@ const IndexPage = () => {
             </div>
           </div>
         </motion.div>
-        {/* <ScrollToTop /> */}
       </>
     </main>
   );
