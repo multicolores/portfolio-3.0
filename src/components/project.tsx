@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "gatsby";
-import Image from "../components/Image";
-import NextProject from "../components/next_project";
-import Menu from "../components/Menu";
+import Image from "./Image";
+import NextProject from "./next_project";
+import Menu from "./Menu";
 
 const ProjectPage = (props) => {
   const projectName = props.name ?? "MuscuTracker";
@@ -150,11 +150,15 @@ const ProjectPage = (props) => {
       {projectsListArray.map((project, i) => {
         return (
           project.pagePath.replace("/", "") == projectName && (
-            <div className="projectPageContainer">
+            <div className="projectPageContainer" key={i}>
               {/* //**HEADER**  */}
               <div className="name">
                 {project.name.split("").map((letter, i) => {
-                  return <span className={"span-" + (i + 1)}>{letter}</span>;
+                  return (
+                    <span className={"span-" + (i + 1)} key={i}>
+                      {letter}
+                    </span>
+                  );
                 })}
               </div>
 

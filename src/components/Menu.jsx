@@ -17,25 +17,29 @@ const everyProjects = [
   {
     name: "MuscuTracker",
     image: muscuTrackerMainPage,
-    path: "/muscutracker",
+    path: "/project/muscutracker",
   },
   {
     name: "MuscuApp",
     image: muscuAppMainPage,
-    path: "/muscuapp",
+    path: "/project/muscuapp",
   },
-  { name: "Forum", image: forumDiscussion, path: "/forum" },
-  { name: "Restaurant", image: restaurant_home, path: "/restaurant" },
+  { name: "Forum", image: forumDiscussion, path: "/project/forum" },
+  { name: "Restaurant", image: restaurant_home, path: "/project/restaurant" },
   {
     name: "Restaurant 2.0",
     image: resto_gatsby_home,
-    path: "/restaurant_gatsby",
+    path: "/project/restaurant_gatsby",
   },
-  { name: "architecture", image: architecture_home, path: "/architecture" },
-  { name: "Blog", image: Blog, path: "/blog" },
-  { name: "sushi", image: sushi_darkmode_home, path: "/sushi" },
-  { name: "Space Star", image: SpaceStar, path: "/SpaceStar" },
-  { name: "Capsule", image: Capsule, path: "/capsule" },
+  {
+    name: "architecture",
+    image: architecture_home,
+    path: "/project/architecture",
+  },
+  { name: "Blog", image: Blog, path: "/project/blog" },
+  { name: "sushi", image: sushi_darkmode_home, path: "/project/sushi" },
+  { name: "Space Star", image: SpaceStar, path: "/project/spacestar" },
+  { name: "Capsule", image: Capsule, path: "/project/capsule" },
 ];
 
 const Menu = (props) => {
@@ -158,7 +162,6 @@ const Menu = (props) => {
     });
     gsap.from(ImageBackground, {
       duration: 0.4,
-      skeyY: 2,
       transformOrigin: "right top",
     });
   };
@@ -192,7 +195,7 @@ const Menu = (props) => {
 
           <div className="links_container" ref={(el) => (Text = el)}>
             {everyProjects.map((el, index) => (
-              <Link to={el.path} key={index}>
+              <Link to={el.path} key={index} onClick={handleMenu}>
                 <span
                   key={el.name}
                   onMouseEnter={() => handleImages(el.image)}

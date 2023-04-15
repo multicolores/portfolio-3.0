@@ -1,137 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import { useState } from "react";
-import { Link } from "gatsby";
 import "../components/styles/styles.scss";
-import { useIntersection } from "react-use";
-import gsap from "gsap";
-import { motion, useTransform, useViewportScroll } from "framer-motion";
 import Image from "../components/Image";
 import Portfolio_projects from "../components/Portfolio_projects";
 
-const pageVariants = {
-  initial: {
-    opacity: 0,
-  },
-  in: {
-    opacity: 1,
-  },
-  out: {
-    opacity: 0,
-  },
-};
-const pageTransition = {
-  duration: 1,
-  ease: "anticipate",
-};
-
-function useMousePosition() {
-  let [mousePosition, setMousePosition] = useState({ x: null, y: null });
-
-  useEffect(() => {
-    function handlePosition(e) {
-      setMousePosition({ x: e.pageX, y: e.pageY });
-    }
-
-    // window.addEventListener("mousemove", handlePosition);
-    // return () => window.removeEventListener("mousemove", handlePosition);
-  }, []);
-
-  return mousePosition;
-}
-
 const IndexPage = () => {
-  const [cursorHovered, setCursorHovered] = useState(false);
-  const [cursorHovered_clickable, setcursorHovered_clickable] = useState(false);
-  // const { x, y } = useMousePosition();
-
-  const { scrollYProgress } = useViewportScroll();
-  const scale = useTransform(scrollYProgress, [0, 0.2], [1.02, 1.2]);
-  const scaleOutOnScroll = useTransform(scrollYProgress, [0, 0.1], [1, 0.6]);
-  const FadeOutOnScroll = useTransform(scrollYProgress, [0, 0.05], [1, 0.5]);
-
-  //! animation apparition on scroll
-  const image = useRef(null);
-  const image2 = useRef(null);
-  const image3 = useRef(null);
-  const image4 = useRef(null);
-  const text = useRef(null);
-
-  const intersection = useIntersection(image, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.6,
-  });
-  const intersection2 = useIntersection(image2, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.6,
-  });
-  const intersection3 = useIntersection(image3, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.6,
-  });
-  const intersection4 = useIntersection(image4, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.6,
-  });
-  const TextIntersection = useIntersection(text, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.6,
-  });
-
-  const fadeIn = (element) => {
-    gsap.to(element, 0.8, {
-      opacity: 1,
-      x: 0,
-    });
-  };
-  const fadeOut = (element) => {
-    gsap.to(element, 0.8, {
-      opacity: 1,
-      x: -60,
-      ease: "power4.out",
-    });
-  };
-  const fadeIn2 = (element) => {
-    gsap.to(element, 0.8, {
-      opacity: 1,
-      x: 0,
-    });
-  };
-  const fadeOut2 = (element) => {
-    gsap.to(element, 0.8, {
-      opacity: 1,
-      x: 60,
-      ease: "power4.out",
-    });
-  };
-
-  const textfadeIn = (element) => {
-    gsap.to(element, 0.8, {});
-  };
-  const textfadeOut = (element) => {
-    gsap.to(element, 0.8, {});
-  };
-
-  TextIntersection && TextIntersection.intersectionRatio < 0.6
-    ? textfadeOut(".TextFadeIn")
-    : textfadeIn(".TextFadeIn");
-
   return (
     <main>
       <title>Home Page</title>
       <>
-        <motion.div
-          initial="initial"
-          animate="in"
-          exit="out"
-          variants={pageVariants}
-          transition={pageTransition}
-          className="home"
-        >
+        <div className="home">
           <div className="intro_anim">
             <svg
               width="302"
@@ -148,10 +25,7 @@ const IndexPage = () => {
           </div>
 
           <header>
-            <motion.div
-              className="container"
-              style={{ scale: scaleOutOnScroll, opacity: FadeOutOnScroll }}
-            >
+            <div className="container">
               <div className="nav_contain">
                 <div>
                   <span className="span-4">F</span>
@@ -175,18 +49,14 @@ const IndexPage = () => {
                 </div>
               </div>
               <h1>Développer web</h1>
-            </motion.div>
+            </div>
           </header>
           <section className="biographie">
-            <div
-              className="image"
-              onMouseEnter={() => setCursorHovered(true)}
-              onMouseLeave={() => setCursorHovered(false)}
-            >
+            <div className="image">
               <Image filename={"ma-tete.jpg"} alt="my picture" />
             </div>
             <div className="paragraphe">
-              <div className="TextFadeIn" ref={text}>
+              <div className="TextFadeIn">
                 <p>
                   Bonjour, je suis Florian TELLIER, développeur full stack
                   junior de 21ans. Je possède un bac S mention bien et je suis
@@ -204,29 +74,14 @@ const IndexPage = () => {
                 alt="List des logos des languages de programmation que je connais"
               />
 
-              <a
-                href="#contact"
-                className="TextFadeIn"
-                ref={text}
-                onMouseEnter={() => {
-                  setCursorHovered(true);
-                  setcursorHovered_clickable(true);
-                }}
-                onMouseLeave={() => {
-                  setCursorHovered(false);
-                  setcursorHovered_clickable(false);
-                }}
-              >
+              <a href="#contact" className="TextFadeIn">
                 {" "}
                 <span>me contacter</span>
               </a>
             </div>
           </section>
 
-          <Portfolio_projects
-            cursor={cursorHovered}
-            cursorText={cursorHovered_clickable}
-          />
+          <Portfolio_projects />
 
           <section className="a_propos">
             <div>
@@ -244,23 +99,13 @@ const IndexPage = () => {
           </section>
           <section className="contact" id="contact">
             <div>
-              <a
-                href="mailto:florian.tellier02@gmail.com"
-                onMouseEnter={() => {
-                  setCursorHovered(true);
-                  setcursorHovered_clickable(true);
-                }}
-                onMouseLeave={() => {
-                  setCursorHovered(false);
-                  setcursorHovered_clickable(false);
-                }}
-              >
+              <a href="mailto:florian.tellier02@gmail.com">
                 <span>Email : </span>
                 <span> florian.tellier02@gmail.com</span>
               </a>
             </div>
           </section>
-        </motion.div>
+        </div>
       </>
     </main>
   );
