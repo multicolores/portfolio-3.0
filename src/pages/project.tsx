@@ -5,6 +5,8 @@ import NextProject from "../components/next_project";
 import Menu from "../components/Menu";
 
 const ProjectPage = (props) => {
+  const projectName = props.name ?? "MuscuTracker";
+
   const projectsListArray = [
     {
       name: "MuscuTracker",
@@ -147,7 +149,7 @@ const ProjectPage = (props) => {
       <Menu />
       {projectsListArray.map((project, i) => {
         return (
-          project.pagePath.replace("/", "") == props.name && (
+          project.pagePath.replace("/", "") == projectName && (
             <div className="projectPageContainer">
               {/* //**HEADER**  */}
               <div className="name">
