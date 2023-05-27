@@ -43,7 +43,18 @@ body {
   background: $bg_color;
   color: $text-color;
   overflow-x: hidden;
+  @media (max-width: 1000px) {
+    width: 100vw;
+  }
 }
+
+main {
+  @media (max-width: 1000px) {
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
+
 a {
   text-decoration: none;
 }
@@ -568,9 +579,7 @@ header {
   width: 90%;
   position: relative;
   margin-top: 15%;
-  @media (max-width: 1000px) {
-    display: none;
-  }
+
   .description {
     position: sticky;
     top: 0;
@@ -579,6 +588,10 @@ header {
     width: 50%;
     z-index: -1;
     pointer-events: none;
+
+    @media (max-width: 1000px) {
+      height: 10vh;
+    }
     h1 {
       position: relative;
       text-transform: uppercase;
@@ -645,6 +658,10 @@ header {
     flex-wrap: wrap;
     margin-left: 50%;
     gap: 10vh;
+    @media (max-width: 1000px) {
+      width: 100%;
+      margin-left: 0%;
+    }
     div {
       width: 100%;
       position: relative;
@@ -710,6 +727,9 @@ header {
   align-items: center;
   flex-wrap: wrap;
   opacity: 1;
+  @media (max-width: 1000px) {
+    height: 20vh;
+  }
   div {
     width: 100%;
     display: flex;
@@ -753,7 +773,7 @@ header {
     font-weight: bold;
     margin: 0;
     @media (max-width: 1000px) {
-      font-size: 7vw;
+      font-size: 6vw;
     }
     @media (max-width: 740px) {
       letter-spacing: 1px;
