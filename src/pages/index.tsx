@@ -48,7 +48,7 @@ const IndexPage = () => {
                   <span className="span-4">r</span>
                 </div>
               </div>
-              <h1>Développer web</h1>
+              <h1>Développeur web</h1>
             </div>
           </header>
           <section className="biographie">
