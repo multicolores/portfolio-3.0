@@ -177,9 +177,7 @@ const ProjectPage = (props) => {
 
               {/* //**DESCRIPTION**  */}
               <p className="description">
-                Application pour suivre ses entraînements de musculation
-                FullStack réalisée avec ReactJs, NodeJS et une base de données
-                Mongodb
+                {project.description}
                 {project.projectUrl && (
                   <a
                     className="visit_site"

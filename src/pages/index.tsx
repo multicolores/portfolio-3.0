@@ -49,6 +49,7 @@ const IndexPage = () => {
                 </div>
               </div>
               <h1>Développeur web</h1>
+              <h1>et mobile full-stack</h1>
             </div>
           </header>
           <section className="biographie">
@@ -58,15 +59,15 @@ const IndexPage = () => {
             <div className="paragraphe">
               <div className="TextFadeIn">
                 <p>
-                  Bonjour, je suis Florian TELLIER, développeur full stack
-                  junior de 21ans. Je possède un bac S mention bien et je suis
-                  actuellement en licence 3 "Conception et Développement
-                  d’Application Web et Mobile" en alternance dans l'entreprise
-                  Renault Digital.
+                  Bonjour, je suis Florian TELLIER, passionné de développement
+                  web et mobile, j’ai enrichi mes compétences grâce à une
+                  formation en alternance, où j’ai réalisé des applications
+                  professionnelles selon les standards d’une grande entreprise.
                 </p>
                 <p>
-                  Passionné de développement web, j'essaie den apprendre un
-                  maximum à ce sujet.
+                  Cette expérience m’a également permis de développer de solides
+                  aptitudes au travail en équipe pour mener à bien des projets
+                  ambitieux.
                 </p>
               </div>
               <Image
